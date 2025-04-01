@@ -1,0 +1,25 @@
+# Ignore dependencies and build files
+
+# Frontend (Next.js)
+Nextflix-Frontend/node_modules/
+Nextflix-Frontend/.next/
+Nextflix-Frontend/.env.local
+Nextflix-Frontend/.vercel/
+Nextflix-Frontend/out/
+Nextflix-Frontend/package-lock.json
+Nextflix-Frontend/yarn.lock
+
+# Backend (Spring Boot)
+Nextflix-Backend/target/
+Nextflix-Backend/.idea/
+Nextflix-Backend/.classpath
+Nextflix-Backend/.project
+Nextflix-Backend/.settings/
+Nextflix-Backend/.mvn/
+Nextflix-Backend/mvnw*
+Nextflix-Backend/mvnw.cmd
+Nextflix-Backend/.env
+
+# Ignore system files
+.DS_Store
+Thumbs.db
