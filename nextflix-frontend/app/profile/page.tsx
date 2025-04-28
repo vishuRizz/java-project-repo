@@ -62,10 +62,10 @@ export default async function ProfilePage() {
             </div>
             <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
               <Link
-                href="/dashboard"
+                href="/"
                 className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
               >
-                Back to Dashboard
+                Back to Main Page
               </Link>
             </div>
           </div>
