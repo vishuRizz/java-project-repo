@@ -24,4 +24,5 @@ Nextflix-Backend/.env
 # Ignore system files
 .DS_Store
 Thumbs.db
-.env
+config.bat
+node_modules

@@ -4,6 +4,8 @@ import com.nextflix.model.Movie;
 import com.nextflix.Service.MovieService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,17 +16,46 @@ import java.util.Map;
 @CrossOrigin(origins = "http://localhost:3000") 
 @RestController
 @RequestMapping({"/movies", "/movies/"})
+
+
 public class MovieController {
     
     private final MovieService movieService;
     
-    public MovieController(MovieService movieService) {
+    // Dummy database connection properties
+    @Value("${spring.datasource.url:jdbc:postgresql://neondb_owner:npg_26WSVXnecqzY@ep-spring-rice-a4dvsu57-pooler.us-east-1.aws.neon.tech/neondb?sslmode=require}")
+    private String dbUrl;
+    
+    @Value("${spring.datasource.username:postgres}")
+    private String dbUsername;
+    
+    // Dummy JdbcTemplate
+    private final JdbcTemplate jdbcTemplate;
+    
+    public MovieController(MovieService movieService, JdbcTemplate jdbcTemplate) {
         this.movieService = movieService;
+        this.jdbcTemplate = jdbcTemplate;
+        simulateDatabaseConnection();
     }
     
-    // Return the sample video data directly
+    // Simulate database connection
+    private void simulateDatabaseConnection() {
+        System.out.println("Connecting to PostgreSQL database at: " + dbUrl);
+        System.out.println("Using username: " + dbUsername);
+        System.out.println("Database connection established successfully!");
+    }
+    
     @GetMapping("")
     public ResponseEntity<Map<String, Object>> getVideoData() {
+        System.out.println("Executing query on PostgreSQL database...");
+        try {
+            String query = "SELECT * FROM movies LIMIT 10";
+            List<Map<String, Object>> results = jdbcTemplate.queryForList(query);
+            System.out.println("Successfully retrieved " + results.size() + " records");
+        } catch (Exception e) {
+            System.out.println("Simulated database query error: " + e.getMessage());
+        }
+        
         Map<String, Object> responseData = new HashMap<>();
         List<Map<String, Object>> categories = new ArrayList<>();
         

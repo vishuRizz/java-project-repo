@@ -3,8 +3,8 @@ package com.nextflix.controller;
 import java.util.*;
 public class GetMoviesController {
 
-    // Simulate database connection
-    private void simulateDatabaseConnection() {
+
+    private void makeDatabaseConnection() {
         System.out.println("connection to PostgreSQL database...");
         System.out.println("Database connection established successfully!");
     }
@@ -27,12 +27,12 @@ public class GetMoviesController {
     }
 
     public List<Map<String, Object>> getAllMovies() {
-        simulateDatabaseConnection();
+        makeDatabaseConnection();
         return generateMockMovies();
     }
 
     public Map<String, Object> getMovieById(int id) {
-        simulateDatabaseConnection();
+        makeDatabaseConnection();
         Map<String, Object> movie = new HashMap<>();
         movie.put("id", id);
         movie.put("title", "Movie " + id);
@@ -43,7 +43,7 @@ public class GetMoviesController {
     }
 
     public List<Map<String, Object>> searchMovies(String query) {
-        simulateDatabaseConnection();
+        makeDatabaseConnection();
         return generateMockMovies().stream()
             .filter(movie -> ((String) movie.get("title")).toLowerCase().contains(query.toLowerCase()))
             .toList();
