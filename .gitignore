@@ -4,6 +4,7 @@
 Nextflix-Frontend/node_modules/
 Nextflix-Frontend/.next/
 Nextflix-Frontend/.env.local
+Nextflix-Frontend/.env
 Nextflix-Frontend/.vercel/
 Nextflix-Frontend/out/
 Nextflix-Frontend/package-lock.json
